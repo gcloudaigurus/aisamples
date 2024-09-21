@@ -1,0 +1,4 @@
+#GLOBAL_API_KEY="Get your API Key"
+#GLOBAL_ORG_KEY="Get your Org Key"
+GLOBAL_API_KEY=""
+GLOBAL_ORG_KEY=""

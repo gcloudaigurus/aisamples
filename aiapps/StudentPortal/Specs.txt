@@ -1,0 +1,132 @@
+## 🛠️ **Student Portal Application Specification**
+
+### **Overview**
+The student portal will allow students and administrators to manage student profiles, courses, assignments, and schedules. Admins can oversee all users, while students can log in to view their information, enroll in courses, and track their progress.
+
+---
+
+## 📂 **Tech Stack**
+
+- **Frontend:** React.js (Vite or Create React App)
+- **Backend:** Node.js (Express.js)
+- **Database:** SQLite (for local development)
+- **Authentication:** JSON Web Tokens (JWT)
+- **UI Framework:** Material-UI or Tailwind CSS
+- **HTTP Client:** Axios
+
+---
+
+## 👥 **User Roles**
+- **Admin:** Manage students, courses, and assignments
+- **Student:** View and manage their own data, enroll in courses
+
+---
+
+## ⚡ **Core Features**
+
+### 🟢 **Authentication & Authorization**
+- **Login & Logout:** JWT-based authentication
+- **Role-based Access:** Admin vs Student
+- **Password Reset:** Email-based reset flow
+
+### 🟠 **Student Features**
+- View personal profile & update contact details
+- Browse available courses & enroll
+- View enrolled courses, assignments, and deadlines
+- Track grades and attendance
+- View class schedule
+
+### 🔵 **Admin Features**
+- Add, edit, and delete student records
+- Create, update, and manage courses
+- Assign students to courses
+- View attendance and grade reports
+
+---
+
+## 🗄️ **Database Models**
+
+### 📘 **Student**
+- `id`: INT (Primary Key)
+- `name`: TEXT
+- `email`: TEXT
+- `password`: TEXT (hashed)
+- `contact`: TEXT
+- `role`: TEXT ("student" or "admin")
+
+### 📗 **Course**
+- `id`: INT (Primary Key)
+- `title`: TEXT
+- `description`: TEXT
+- `instructor`: TEXT
+
+### 📕 **Enrollment**
+- `id`: INT (Primary Key)
+- `student_id`: INT (Foreign Key)
+- `course_id`: INT (Foreign Key)
+- `enrollment_date`: DATE
+
+### 📙 **Assignment**
+- `id`: INT (Primary Key)
+- `course_id`: INT (Foreign Key)
+- `title`: TEXT
+- `description`: TEXT
+- `due_date`: DATE
+
+### 📒 **Attendance**
+- `id`: INT (Primary Key)
+- `student_id`: INT (Foreign Key)
+- `course_id`: INT (Foreign Key)
+- `date`: DATE
+- `status`: TEXT ("present" or "absent")
+
+---
+
+## 🛜 **API Routes**
+
+### 🟢 **Auth Routes**
+- `POST /api/auth/login`: Login a user
+- `POST /api/auth/register`: Register a new student
+- `POST /api/auth/reset-password`: Reset password
+
+### 🟠 **Student Routes**
+- `GET /api/students/:id`: Get student profile
+- `PUT /api/students/:id`: Update student profile
+- `GET /api/students/:id/enrollments`: List enrolled courses
+
+### 🔵 **Course Routes**
+- `GET /api/courses`: List all courses
+- `POST /api/courses`: Create a course (admin only)
+- `PUT /api/courses/:id`: Update a course (admin only)
+- `DELETE /api/courses/:id`: Delete a course (admin only)
+
+### 📘 **Enrollment Routes**
+- `POST /api/enrollments`: Enroll in a course
+- `DELETE /api/enrollments/:id`: Unenroll from a course
+
+### 📕 **Assignment Routes**
+- `GET /api/courses/:id/assignments`: List assignments for a course
+- `POST /api/assignments`: Create a new assignment (admin only)
+
+---
+
+## 🖼️ **Frontend Components**
+
+### 🟢 **Public Pages**
+- Login Page
+- Registration Page
+
+### 🟠 **Student Dashboard**
+- Profile View
+- Course List
+- Assignment Tracker
+- Attendance Calendar
+
+### 🔵 **Admin Dashboard**
+- Student Management
+- Course Management
+- Assignment Management
+- Reports & Analytics
+
+
+

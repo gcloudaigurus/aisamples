@@ -1,0 +1,9 @@
+requests==2.31.0
+beautifulsoup4==4.12.2
+chromadb==0.4.22
+google-cloud-aiplatform==1.42.1
+python-dotenv==1.0.1
+pytest==8.0.0
+lxml==5.1.0
+vertexai==0.0.1
+google-cloud-core>=2.3.3 
